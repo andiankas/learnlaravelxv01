@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/about', function () {
+	$pagetitle = 'About';
+    return view('about',['pagetitle' => $pagetitle]);
+});
+Route::get('/mahasiswa', function () {
+    return view('mahasiswa');
+});
