@@ -25,8 +25,8 @@
 					<tr>
 						<td>{{ $loop->iteration }}</td>
 						<td>{{ $datamhs->nama }}</td>
-						<td>{{ $datamhs->nim }}</td>
-						<td>{{ ucfirst($datamhs->fakultas) }}</td>
+						<td>{{ $datamhs->nip }}</td>
+						<td>{{ ucfirst($datamhs->jurusan) }}</td>
 						<td>{{ $datamhs->email }}</td>
 						<td>
 							<a href="" class="badge badge-success">Edit</a>
