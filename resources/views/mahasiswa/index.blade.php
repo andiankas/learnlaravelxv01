@@ -21,17 +21,19 @@
 					</tr>
 				</thead>
 				<tbody>
+					@foreach($datamahasiswa as $datamhs)
 					<tr>
-						<th scope="row">1</th>
-						<td>Andi Rustianto</td>
-						<td>1620192070</td>
-						<td>Teknik Informatika</td>
-						<td>andiankas@gmail.com</td>
+						<td>{{ $loop->iteration }}</td>
+						<td>{{ $datamhs->nama }}</td>
+						<td>{{ $datamhs->nim }}</td>
+						<td>{{ ucfirst($datamhs->fakultas) }}</td>
+						<td>{{ $datamhs->email }}</td>
 						<td>
 							<a href="" class="badge badge-success">Edit</a>
 							<a href="" class="badge badge-danger">Delete</a>
 						</td>
 					</tr>
+					@endforeach
 				</tbody>
 			</table>
 
