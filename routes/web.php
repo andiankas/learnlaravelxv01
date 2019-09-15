@@ -17,11 +17,15 @@ Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 // mahasiswa
 Route::get('/mahasiswa', 'MahasiswaController@index');
+
 //  student
-Route::get('/student', 'StudentController@index'); // show all data
-Route::get('/student/create', 'StudentController@create'); // create new data
-Route::get('/student/{student}', 'StudentController@show'); // detail data
-Route::post('/student', 'StudentController@store'); // tampung data yang mau di add
-Route::delete('/student/{student}', 'StudentController@destroy'); // delete data
-Route::get('/student/{student}/edit', 'StudentController@edit'); // edit data
+// Route::get('/student', 'StudentController@index'); // show all data
+// Route::get('/student/create', 'StudentController@create'); // create new data
+// Route::get('/student/{student}', 'StudentController@show'); // detail data
+// Route::post('/student', 'StudentController@store'); // tampung data yang mau di add
+// Route::delete('/student/{student}', 'StudentController@destroy'); // delete data
+// Route::get('/student/{student}/edit', 'StudentController@edit'); // edit data
+// Route::patch('/student/{student}', 'StudentController@update'); // update data
+
+Route::resource('student','StudentController');
 

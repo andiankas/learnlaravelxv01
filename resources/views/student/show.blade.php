@@ -17,7 +17,7 @@
 
 					<br>
 					<a href="{{ $student->id }}/edit" class="btn btn-warning">Edit</a>
-					<form action="{{ $student->id }}" method="post" class="d-inline">
+					<form action="/student/{{ $student->id }}" method="post" class="d-inline">
 						@method('delete')
 						@csrf
 						<button type="submit" class="btn btn-danger">Delete</button>

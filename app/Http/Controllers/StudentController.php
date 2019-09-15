@@ -96,9 +96,25 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        // validate
+        $request->validate([
+            'nama'      => 'required',
+            'nip'       => 'required|size:10',
+            'email'     => 'required',
+            'jurusan'   => 'required'
+
+        ]);
+
+        Student::where('id',$student->id)
+                ->update([
+                    'nama'      =>  $request->nama,
+                    'nip'       =>  $request->nip,
+                    'email'     =>  $request->email,
+                    'jurusan'   =>  $request->jurusan,
+                ]);
+        return redirect('/student')->with('status','Data berhasil diupdate!');
     }
 
     /**
