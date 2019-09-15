@@ -17,7 +17,7 @@
 				{{ session('status') }}
 			</div>
 			@endif
-			
+
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
@@ -38,8 +38,7 @@
 						<td>{{ ucfirst($val->jurusan) }}</td>
 						<td>{{ $val->email }}</td>
 						<td>
-							<a href="/student/{{ $val->id }}" class="badge badge-success">Edit</a>
-							<a href="" class="badge badge-danger">Delete</a>
+							<a href="/student/{{ $val->id }}" class="badge badge-success">Detail</a>
 						</td>
 					</tr>
 					@endforeach

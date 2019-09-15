@@ -16,8 +16,12 @@
 					<p class="card-text">NIP : {{ $student->nip }}</p>
 
 					<br>
-					<button type="submit" class="btn btn-primary">Edit</button>
-					<button type="submit" class="btn btn-danger">Delete</button>
+					<a href="{{ $student->id }}/edit" class="btn btn-warning">Edit</a>
+					<form action="{{ $student->id }}" method="post" class="d-inline">
+						@method('delete')
+						@csrf
+						<button type="submit" class="btn btn-danger">Delete</button>
+					</form>
 					<a href="/student" class="card-link">Kembali</a>
 				</div>
 			</div>

@@ -83,9 +83,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Student $student)
     {
         //
+        return view('student.edit',compact('student'));  
     }
 
     /**
@@ -106,8 +107,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
         //
+        Student::destroy($student->id);
+        return redirect('/student')->with('status','Data berhasil dihapus!');
     }
 }
