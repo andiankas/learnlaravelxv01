@@ -13,6 +13,13 @@
 
 
 Route::get('/', 'PagesController@index');
+// about
 Route::get('/about', 'PagesController@about');
-
+// mahasiswa
 Route::get('/mahasiswa', 'MahasiswaController@index');
+//  student
+Route::get('/student', 'StudentController@index');
+Route::get('/student/create', 'StudentController@create');
+Route::get('/student/{student}', 'StudentController@show');
+Route::post('/student', 'StudentController@store');
+

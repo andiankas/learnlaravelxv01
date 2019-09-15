@@ -8,6 +8,8 @@
 	<div class="row">
 		<div class="col-md-10">
 			<h1 class="mt-2">Daftar {{ $pagetitle }}</h1>
+			
+			<a href="/student/create" class="btn btn-primary my-3">Add Data</a>
 
 			<table class="table">
 				<thead class="thead-dark">
@@ -21,15 +23,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					@foreach($datamahasiswa as $datamhs)
+					@foreach($data as $val)
 					<tr>
 						<td>{{ $loop->iteration }}</td>
-						<td>{{ $datamhs->nama }}</td>
-						<td>{{ $datamhs->nim }}</td>
-						<td>{{ ucfirst($datamhs->fakultas) }}</td>
-						<td>{{ $datamhs->email }}</td>
+						<td>{{ $val->nama }}</td>
+						<td>{{ $val->nip }}</td>
+						<td>{{ ucfirst($val->jurusan) }}</td>
+						<td>{{ $val->email }}</td>
 						<td>
-							<a href="" class="badge badge-success">Edit</a>
+							<a href="/student/{{ $val->id }}" class="badge badge-success">Edit</a>
 							<a href="" class="badge badge-danger">Delete</a>
 						</td>
 					</tr>

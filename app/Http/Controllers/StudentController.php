@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Mahasiswa;
+use App\Student;
 
-class MahasiswaController extends Controller
+class StudentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,15 +14,15 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        // $datamahasiswa = DB::table('tbl_student')->get();
-        $datamahasiswa = Mahasiswa::all();
+        //
+        $data = Student::all();
         
-        $data = [
-            'pagetitle'     => 'Mahasiswa',
-            'datamahasiswa' => $datamahasiswa
+        $content = [
+            'pagetitle'     => 'Student',
+            'data' => $data
         ];
 
-        return view('mahasiswa.index',$data);
+        return view('student.index',$content);
     }
 
     /**
@@ -34,6 +33,7 @@ class MahasiswaController extends Controller
     public function create()
     {
         //
+        return view('student.create');
     }
 
     /**
@@ -45,6 +45,13 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         //
+        $student = new Student;
+        $student->nama = $request->nama;
+        $student->nip = $request->nip;
+        $student->email = $request->email;
+        $student->jurusan = $request->jurusan;
+        $student->save();
+        return redirect('/student');
     }
 
     /**
@@ -53,9 +60,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Student $student)
     {
         //
+        return view('student.show',compact('student'));    
     }
 
     /**
