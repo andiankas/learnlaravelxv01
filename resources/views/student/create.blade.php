@@ -12,20 +12,32 @@
 			<form method="post" action="/student">
 				@csrf
 				<div class="form-group">
-					<label for="exampleInputEmail1">Nama</label>
-					<input type="text" class="form-control" name="nama" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan nama anda">
+					<label for="nama">Nama</label>
+					<input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" id="nama" aria-describedby="emailHelp" placeholder="Masukkan nama anda">
+					@error('nama')
+						<div class="invalid-feedback">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">NIP</label>
-					<input type="text" class="form-control" name="nip" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="NIP">
+					<label for="nip">NIP</label>
+					<input type="text" class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip" aria-describedby="emailHelp" placeholder="NIP">
+					@error('nip')
+						<div class="invalid-feedback">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Email</label>
-					<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="emailkamu@mail.com">
+					<label for="email">Email</label>
+					<input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" aria-describedby="emailHelp" placeholder="emailkamu@mail.com">
+					@error('email')
+						<div class="invalid-feedback">{{ $message }}</div>
+					@enderror
 				</div>
 				<div class="form-group">
-					<label for="exampleInputEmail1">Jurusan</label>
-					<input type="text" class="form-control" name="jurusan" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan jurusan anda">
+					<label for="jurusan">Jurusan</label>
+					<input type="text" class="form-control @error('jurusan') is-invalid @enderror" name="jurusan" id="jurusan" aria-describedby="emailHelp" placeholder="Masukkan jurusan anda">
+					@error('jurusan')
+						<div class="invalid-feedback">{{ $message }}</div>
+					@enderror
 				</div>
 
 				<button type="submit" class="btn btn-primary">Submit</button>

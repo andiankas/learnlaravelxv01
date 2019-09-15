@@ -45,13 +45,24 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
-        $student = new Student;
-        $student->nama = $request->nama;
-        $student->nip = $request->nip;
-        $student->email = $request->email;
-        $student->jurusan = $request->jurusan;
-        $student->save();
-        return redirect('/student');
+        // $student = new Student;
+        // $student->nama = $request->nama;
+        // $student->nip = $request->nip;
+        // $student->email = $request->email;
+        // $student->jurusan = $request->jurusan;
+        // $student->save();
+
+        // validate
+        $request->validate([
+            'nama'      => 'required',
+            'nip'       => 'required|size:10',
+            'email'     => 'required',
+            'jurusan'   => 'required'
+
+        ]);
+
+        Student::create($request->all());
+        return redirect('/student')->with('status','Data berhasil ditambahkan!');
     }
 
     /**

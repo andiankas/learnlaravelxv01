@@ -11,6 +11,13 @@
 			
 			<a href="/student/create" class="btn btn-primary my-3">Add Data</a>
 
+			<!-- flash message -->
+			@if (session('status'))
+			<div class="alert alert-success">
+				{{ session('status') }}
+			</div>
+			@endif
+			
 			<table class="table">
 				<thead class="thead-dark">
 					<tr>
@@ -38,7 +45,6 @@
 					@endforeach
 				</tbody>
 			</table>
-
 		</div>
 	</div>
 </div>
